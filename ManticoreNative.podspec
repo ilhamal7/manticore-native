@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/ilhamal7/manticore-native'
   s.license          = { :type => 'MIT' }
   s.author           = { 'PayPal' => 'support@paypal.com' }
-  s.source           = { :git => 'https://github.com/ilhamal7/manticore-native.git', :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/ilhamal7/manticore-native.git", :tag => s.version.to_s, :branch => "master" }
   s.ios.deployment_target = '12.0'
   s.source_files     = 'Classes/**/*'
 end
